@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div data-ng-controller="simpleReport as vm" id="report">
+    <h3>{{vm.data.reportName}}</h3>
+    <p class="bg-info">
+        <button id="generatePdfButton">Generate pdf</button>
+        <label><input type="checkbox" name="showNin" data-ng-model="vm.showNationalId">Show National Id</label>
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>Report metadata</th>
+            <th></th> <!-- colspan isn't supported by jsPdf-->
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><strong>County:</strong></td>
+            <td>{{vm.data.countyName}}</td>
+            <td><strong>Subect Group Name:</strong></td>
+            <td>{{vm.data.subectGroupName}}</td>
+        </tr>
+        <tr>
+            <td><strong>Report Date:</strong>
+            <td>{{vm.data.reportDate| date:'short'}}</td>
+            <td><strong>GradeResonsible:</strong>
+            <td>{{vm.data.gradeResonsible}}</td>
+
+        </tr>
+    </table>
+
+    <h4>Students (total: {{vm.data.students.length}})</h4>
+
+    <table class="table table-striped">
+        <tr>
+            <th ng-show="vm.showNationalId">National Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Address</th>
+            <th>MobilePhone</th>
+        </tr>
+        <tr data-ng-repeat="student in vm.data.students">
+            <td ng-show="vm.showNationalId">{{student.nationalId}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.mobilePhone}}</td>
+        </tr>
+    </table>
+</div>
+
+@section scripts{
+    <script src="~/js/app/simplereport.controller.js"></script>
+    <script src="~/js/jspdf.js"></script>
+}
