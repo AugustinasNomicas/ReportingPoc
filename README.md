@@ -5,10 +5,11 @@ This is ASP Core 1.0 Project using Angular 1.5 and jsPDF libraries to demonstrat
 
 How to start project:
 
-1. Install ASP.NET 5 RC at https://get.asp.net/ or using commandline:
+Install ASP.NET 5 RC at https://get.asp.net/ or using commandline:
 
 `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"`
 
-2. Run:
-`dnu restore
-dnx web`
+Run:
+1. `dnu restore`
+
+2. `dnx web`
