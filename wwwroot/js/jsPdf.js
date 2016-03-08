@@ -7,6 +7,7 @@ var specialElementHandlers = {
 };
 
 $('#generatePdfButton').click(function () {
+    var start = new Date();
     var pdf = new jsPDF('p', 'pt', 'a4');
     // source can be HTML-formatted string, or a reference
     // to an actual DOM element from which the text will be scraped.
@@ -42,5 +43,10 @@ $('#generatePdfButton').click(function () {
         // dispose: object with X, Y of the last line add to the PDF 
         //          this allow the insertion of new lines after html
         pdf.save('Test.pdf');
+
+        var end = new Date();
+        var time = end.getTime() - start.getTime();
+        console.log('Pdf generation finished in', time, 'ms');
+
     }, margins);
 });

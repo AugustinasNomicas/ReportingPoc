@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Large Report";
+}
+
+<div data-ng-controller="largeReport as vm" id="report">
+    <h3>{{vm.data.reportName}}</h3>
+    <p class="bg-info">
+        <button id="generatePdfButton">Generate pdf</button>
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>Report metadata</th>
+            <th></th> <!-- colspan isn't supported by jsPdf-->
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><strong>County:</strong></td>
+            <td>{{vm.data.countyName}}</td>
+        </tr>
+        <tr>
+            <td><strong>Report Date:</strong>
+            <td>{{vm.data.reportDate| date:'short'}}</td>
+        </tr>
+    </table>
+
+    <h4>Students (total: {{vm.data.students.length}})</h4>
+
+    <table class="table table-striped">
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>SchoolName</th>
+            <th>ProgramArea</th>
+            <th>LastDiplomaDate</th>
+            <th>CountOfDiplomas</th>
+        </tr>
+        <tr data-ng-repeat="student in vm.data.students">
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.schoolName}}</td>
+            <td>{{student.programArea}}</td>
+            <td>{{student.lastDiplomaDate| date:'short'}}</td>
+            <td>{{student.countOfDiplomas}}</td>
+        </tr>
+    </table>
+</div>
+
+@section scripts{
+    <script src="~/js/app/largeReport.controller.js"></script>
+    <script src="~/js/jspdf.js"></script>
+}

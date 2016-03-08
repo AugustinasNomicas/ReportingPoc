@@ -40,6 +40,7 @@ namespace Visma.ReportingPoc
 
             // Add custom services
             services.AddScoped<ISimpleReportService, SimpleReportService>();
+            services.AddScoped<ILargeReportService, LargeReportService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

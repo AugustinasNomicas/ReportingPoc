@@ -13,12 +13,12 @@ namespace Visma.ReportingPoc.Controllers
             return View();
         }
 
-        public IActionResult InteractiveReport()
+        public IActionResult LargeReport()
         {
             return View();
         }
 
-        public IActionResult LargeReport()
+        public IActionResult InteractiveReport()
         {
             return View();
         }

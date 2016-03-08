@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Visma.ReportingPoc.ViewModels
+﻿namespace Visma.ReportingPoc.ViewModels
 {
     public class StudentWithAddressViewModel
     {

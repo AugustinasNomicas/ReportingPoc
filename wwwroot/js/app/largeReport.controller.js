@@ -3,18 +3,18 @@
 
     angular
         .module('app')
-        .controller('simpleReport', simpleReport);
+        .controller('largeReport', largeReport);
 
-    simpleReport.$inject = ['$http'];
+    largeReport.$inject = ['$http'];
 
-    function simpleReport($http) {
+    function largeReport($http) {
         var vm = this;
-        vm.title = 'simpleReport';
+        vm.title = 'largeReport';
 
         activate();
 
         function activate() {
-            $http({ method: "GET", url: "/api/SimpleReport"}).
+            $http({ method: "GET", url: "/api/largeReport"}).
                    then(function (response) {
                        vm.data = response.data;
                    });
