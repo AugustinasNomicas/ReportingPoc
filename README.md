@@ -11,5 +11,4 @@ Install ASP.NET 5 RC at https://get.asp.net/ or using commandline:
 
 Run:
 1. `dnu restore`
-
 2. `dnx web`
